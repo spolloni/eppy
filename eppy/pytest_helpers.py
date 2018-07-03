@@ -32,6 +32,9 @@ def do_integration_tests():
     bool
 
     """
+    print("PATH_TO_EPPY", PATH_TO_EPPY)
+    print("INTEGRATION_TESTS", INTEGRATION_TESTS)
+    print("INTEGRATION_FILES", INTEGRATION_FILES)
     return os.getenv('EPPY_INTEGRATION', False)
 
 

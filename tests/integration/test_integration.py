@@ -57,6 +57,7 @@ class TestModeleditorIntegration():
         self.copyfile = os.path.join(INTEGRATION_FILES, "savecopy.idf")
 
         # make a copy of test file
+        print("self.origfile", self.origfile)
         shutil.copy(self.origfile, self.startfile)
 
     def teardown(self):
