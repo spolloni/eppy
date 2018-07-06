@@ -26,7 +26,8 @@ from eppy.pytest_helpers import do_integration_tests
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 
-RESOURCES_DIR = os.path.join(THIS_DIR, os.pardir, 'eppy', 'resources')
+# RESOURCES_DIR = os.path.join(THIS_DIR, os.pardir, 'eppy', 'resources')
+RESOURCES_DIR = os.path.join(THIS_DIR, 'resources')
 
 IDD_FILES = os.path.join(RESOURCES_DIR, 'iddfiles')
 IDF_FILES = os.path.join(RESOURCES_DIR, 'idffiles')

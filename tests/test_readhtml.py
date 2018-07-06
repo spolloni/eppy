@@ -15,7 +15,7 @@ import collections
 from bs4 import BeautifulSoup
 import eppy.results.readhtml as readhtml
 # from eppy.tests.sample_html import sample_html as SAMPLE_HTML
-from sample_html import sample_html as SAMPLE_HTML
+from tests.sample_html import sample_html as SAMPLE_HTML
 
 
 def test_table2matrix():
