@@ -17,14 +17,19 @@ import shutil
 import sys
 
 from eppy.modeleditor import IDF
-from eppy.pytest_helpers import IDD_FILES
-from eppy.pytest_helpers import INTEGRATION_FILES
-from eppy.pytest_helpers import PATH_TO_EPPY
+# from eppy.pytest_helpers import IDD_FILES
+# from eppy.pytest_helpers import INTEGRATION_FILES
+# from eppy.pytest_helpers import PATH_TO_EPPY
 from eppy.pytest_helpers import do_integration_tests
 import pytest
 
 
-sys.path.append(PATH_TO_EPPY)
+# sys.path.append(PATH_TO_EPPY)
+THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+INTEGRATION_FILES = os.path.join(THIS_DIR, 'data2test')
+RESOURCES_DIR = os.path.join(THIS_DIR, os.pardir, 'resources')
+IDD_FILES = os.path.join(RESOURCES_DIR, 'iddfiles')
+IDF_FILES = os.path.join(RESOURCES_DIR, 'idffiles')
 
 
 def getversion(idf):
