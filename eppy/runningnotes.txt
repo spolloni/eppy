@@ -1,5 +1,21 @@
 rsync -av --exclude=".*" eplusinterface_diagrams/ ./eppy_0_4_0 # leave this line at top
 
+2018-07-06
+----------
+
+transitioning to cookiecutter:
+stuff working
+- clean
+- test
+- coverage
+Stuff not working right:
+- docs
+- test-all
+stuff to try:
+- release
+- install
+- etc.
+
 2018-04-30
 ----------
 

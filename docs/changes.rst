@@ -4,6 +4,11 @@ Changes
 next release
 ~~~~~~~~~~~~
 
+2018-07-06
+~~~~~~~~~~
+
+- reorganized the files to use with https://github.com/audreyr/cookiecutter
+
 2018-04-23
 ----------
 
