@@ -1,3 +1,10 @@
+2018-07-04
+----------
+virtualenv without wrapper (on Santosh's laptop)
+
+virtualenv-2.7 ~/.virtualenvs/eppy2 # create
+source ~/.virtualenvs/eppy2/bin/activate # activate
+
 2018-03-21
 ----------
 On windows pip is giving a windowserror
