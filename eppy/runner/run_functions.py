@@ -325,10 +325,11 @@ def run(
         return
 
     # convert paths to absolute paths if required
-    if os.path.isfile(args["weather"]):
-        args["weather"] = os.path.abspath(args["weather"])
-    else:
-        args["weather"] = os.path.join(eplus_weather_path, args["weather"])
+    if args["weather"]:
+        if os.path.isfile(args["weather"]):
+            args["weather"] = os.path.abspath(args["weather"])
+        else:
+            args["weather"] = os.path.join(eplus_weather_path, args["weather"])
     output_dir = os.path.abspath(args["output_directory"])
     args["output_directory"] = output_dir
 
