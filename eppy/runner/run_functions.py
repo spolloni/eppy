@@ -16,7 +16,7 @@ import os
 import platform
 import pydoc
 import shutil
-from subprocess import CalledProcessError, check_call
+from subprocess import CalledProcessError, DEVNULL, check_call
 import sys
 import tempfile
 
@@ -356,7 +356,7 @@ def run(
             print("\r\n" + " ".join(cmd) + "\r\n")
             check_call(cmd)
         elif verbose == "q":
-            check_call(cmd, stdout=open(os.devnull, "w"))
+            check_call(cmd, stdout=DEVNULL, stderr=DEVNULL)
     except CalledProcessError:
         message = parse_error(tmp_err, output_dir)
         raise EnergyPlusRunError(message)
