@@ -548,8 +548,7 @@ class IDF(object):
         if idfname != None:
             self.idfname = idfname
             self.read()
-        if epw != None:
-            self.epw = epw
+        self.epw = epw
         self.outputtype = "standard"
 
     """ Methods to set up the IDD."""
