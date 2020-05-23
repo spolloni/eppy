@@ -348,9 +348,6 @@ def run(
                 cmd.extend([args[arg]])
     cmd.extend([idf_path])
 
-    # send stdout to tmp filehandle to avoid issue #245
-    tmp_err = StringIO()
-    sys.stderr = tmp_err
     try:
         if verbose == "v":
             print("\r\n" + " ".join(cmd) + "\r\n")
@@ -361,26 +358,22 @@ def run(
         message = parse_error(tmp_err, output_dir)
         raise EnergyPlusRunError(message)
     finally:
-        sys.stderr = sys.__stderr__
         os.chdir(cwd)
     return "OK"
 
 
-def parse_error(tmp_err, output_dir):
-    """Add contents of stderr and eplusout.err and put it in the exception message.
-
-    :param tmp_err: file-like
+def parse_error(output_dir):
+    """Add contents of eplusout.err and put it in the exception message.
     :param output_dir: str
     :return: str
     """
-    std_err = tmp_err.getvalue()
     err_file = os.path.join(output_dir, "eplusout.err")
     if os.path.isfile(err_file):
         with open(err_file, "r") as f:
             ep_err = f.read()
     else:
         ep_err = "<File not found>"
-    message = "\r\n{std_err}\r\nContents of EnergyPlus error file at {err_file}\r\n{ep_err}".format(
+    message = "\r\nContents of EnergyPlus error file at {err_file}\r\n{ep_err}".format(
         **locals()
     )
     return message
