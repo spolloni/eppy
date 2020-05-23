@@ -331,8 +331,8 @@ def run(
         args["weather"] = os.path.join(eplus_weather_path, args["weather"])
     if args["output_directory"] is None:
         args["output_directory"] = os.getcwd()
-    if not os.path.isdir(args["output_directory"]:
-        raise NotADirectoryError(f" can't find dir {args["output_directory"]}")
+    if not os.path.isdir(args["output_directory"]):
+        raise NotADirectoryError(f" can't find dir {args['output_directory']}")
     args["output_directory"] = os.path.abspath(args["output_directory"])
 
     # build a list of command line arguments
