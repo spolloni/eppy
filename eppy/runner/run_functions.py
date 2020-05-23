@@ -208,7 +208,7 @@ def multirunner(args):
 def run(
     idf=None,
     weather=None,
-    output_directory="",
+    output_directory=None,
     annual=False,
     design_day=False,
     idd=None,
@@ -329,13 +329,11 @@ def run(
         args["weather"] = os.path.abspath(args["weather"])
     else:
         args["weather"] = os.path.join(eplus_weather_path, args["weather"])
-    output_dir = os.path.abspath(args["output_directory"])
-    args["output_directory"] = output_dir
-
-    # store the directory we start in
-    cwd = os.getcwd()
-    run_dir = os.path.abspath(tempfile.mkdtemp())
-    os.chdir(run_dir)
+    if output_directory is None:
+        output_directory = os.getcwd()
+    if not os.path.isdir(output_directory):
+        raise NotADirectoryError(f" can't find dir {output_directory}")
+    args["output_directory"] = os.path.abspath(args["output_directory"])
 
     # build a list of command line arguments
     cmd = [eplus_exe_path]
@@ -362,7 +360,6 @@ def run(
         raise EnergyPlusRunError(message)
     finally:
         sys.stderr = sys.__stderr__
-        os.chdir(cwd)
     return "OK"
 
 
