@@ -355,7 +355,7 @@ def run(
         elif verbose == "q":
             check_call(cmd, stdout=open(os.devnull, "w"))
     except CalledProcessError:
-        message = parse_error(tmp_err, output_dir)
+        message = parse_error(output_dir)
         raise EnergyPlusRunError(message)
     finally:
         os.chdir(cwd)
